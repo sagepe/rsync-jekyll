@@ -1,0 +1,21 @@
+name: Linting for rsync-jekyll
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Lint Dockerfile
+        uses: brpaz/hadolint-action@v1.2.1
+        with:
+          dockerfile: "Dockerfile"
