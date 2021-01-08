@@ -1,0 +1,12 @@
+name: 'Jekyll Rsync Deployer'
+description: 'Deploy a Jekyll site using rsync over SSH'
+author: 'Sam Pearson <sam@sgp.me.uk>'
+inputs:
+  dest:
+    description: 'Remote user, server and path'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.dest }}
