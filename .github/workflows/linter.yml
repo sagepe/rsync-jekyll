@@ -19,3 +19,13 @@ jobs:
         uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: "Dockerfile"
+
+      - name: Lint YAML
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: "action.yml"
+
+      - name: Run Shellcheck
+        uses: azohra/shell-linter@latest
+        with:
+          path: "entrypoint.sh"
